@@ -1,7 +1,5 @@
-import tiktoken
 import torch
 import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader
 
 class MultiHeadAttention(nn.Module):
     def __init__(self, d_in, d_out, context_length, dropout, num_heads, qkv_bias=False):
@@ -57,3 +55,4 @@ class MultiHeadAttention(nn.Module):
         context_vec = self.out_proj(context_vec)  # optional projection
 
         return context_vec
+    
