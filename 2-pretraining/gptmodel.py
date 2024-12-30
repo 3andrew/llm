@@ -3,6 +3,7 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 import tiktoken
 
+# torch.set_default_device("cuda")
 
 ### Attention ###
 
@@ -65,6 +66,8 @@ class MultiHeadAttention(nn.Module):
 ### GPT Model ###
 
 def generate_text_simple(model, idx, max_new_tokens, context_size):
+    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # print(device)
     # idx is (batch, n_tokens) array of indices in the current context
     for _ in range(max_new_tokens):
         
